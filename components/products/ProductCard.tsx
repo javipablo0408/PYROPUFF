@@ -49,7 +49,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.name}
         </h3>
         {product.description && (
-          <p className="text-pyro-gray text-sm mb-4 line-clamp-2">
+          <p className="text-black text-sm mb-4 line-clamp-2">
             {product.description}
           </p>
         )}

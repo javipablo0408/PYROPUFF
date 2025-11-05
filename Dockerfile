@@ -1,17 +1,19 @@
 # Dockerfile para Pyro Puff - Next.js 15 con pnpm
 FROM node:20-alpine AS base
 
-# Instalar pnpm usando corepack
-RUN corepack enable && corepack prepare pnpm@latest --activate
+# Instalar pnpm usando corepack (fijamos la versión del package.json para reproducibilidad)
+RUN corepack enable && corepack prepare pnpm@8.15.0 --activate
 
 # Instalar dependencias solo cuando se necesiten
 FROM base AS deps
-RUN apk add --no-cache libc6-compat
+# Añadir herramientas necesarias para construir dependencias nativas y acceso a git
+# Esto ayuda cuando paquetes requieren compilación nativa o dependencias desde git
+RUN apk add --no-cache libc6-compat build-base python3 g++ make git curl
 WORKDIR /app
 
 # Copiar archivos de dependencias
 COPY package.json pnpm-lock.yaml* ./
-RUN corepack enable && corepack prepare pnpm@latest --activate && \
+RUN corepack enable && corepack prepare pnpm@8.15.0 --activate && \
     pnpm install --frozen-lockfile
 
 # Rebuild el código fuente solo cuando sea necesario
@@ -19,7 +21,7 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@8.15.0 --activate
 
 # Deshabilitar telemetría de Next.js durante el build
 ENV NEXT_TELEMETRY_DISABLED 1

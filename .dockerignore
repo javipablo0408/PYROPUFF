@@ -1,0 +1,17 @@
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+pnpm-debug.log
+README.md
+.env
+.env.local
+.env*.local
+.next
+.git
+.gitignore
+.vercel
+.DS_Store
+*.pem
+pnpm-lock.yaml
+!.npmrc

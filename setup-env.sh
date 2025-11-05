@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Script para configurar el archivo .env con las credenciales de Supabase
+
+cat > .env << 'EOF'
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=https://gmmxtbnomamtcecywapf.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdtbXh0Ym5vbWFtdGNlY3l3YXBmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIyNzQ1NTgsImV4cCI6MjA3Nzg1MDU1OH0.wLQ9MV-FvQglxkjIQwDt28UzlMnqF0gznh52u4axWWg
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdtbXh0Ym5vbWFtdGNlY3l3YXBmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2MjI3NDU1OCwiZXhwIjoyMDc3ODUwNTU4fQ.XnX2sFNzHHlNtG_zfV_mOaTC9aIZFxig7pyN45QnZb4
+
+# Stripe Configuration (Completar con tus credenciales de Stripe)
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+
+# Application Configuration
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# Next.js Configuration
+NEXT_TELEMETRY_DISABLED=1
+
+# PostgreSQL Connection (Opcional - para uso directo de PostgreSQL)
+# DATABASE_URL=postgresql://postgres:[YOUR_PASSWORD]@db.gmmxtbnomamtcecywapf.supabase.co:5432/postgres
+EOF
+
+echo "✅ Archivo .env creado exitosamente con las credenciales de Supabase"
+echo "⚠️  No olvides completar las credenciales de Stripe cuando las tengas"
+
+

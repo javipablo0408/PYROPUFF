@@ -13,5 +13,4 @@ README.md
 .vercel
 .DS_Store
 *.pem
-pnpm-lock.yaml
 !.npmrc

@@ -44,11 +44,6 @@ export function Footer() {
                   Shipping
                 </Link>
               </li>
-              <li>
-                <Link href="/returns" className="hover:text-orange-500 transition-colors">
-                  Returns
-                </Link>
-              </li>
             </ul>
           </div>
           

@@ -12,8 +12,9 @@ RUN apk add --no-cache libc6-compat build-base python3 g++ make git curl
 WORKDIR /app
 
 # Copiar archivos de dependencias
-COPY package.json pnpm-lock.yaml* ./
-RUN corepack enable && corepack prepare pnpm@8.15.0 --activate && \
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable && \
+    corepack prepare pnpm@8.15.0 --activate && \
     pnpm install --frozen-lockfile
 
 # Rebuild el código fuente solo cuando sea necesario

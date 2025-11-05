@@ -27,6 +27,15 @@ RUN corepack enable && corepack prepare pnpm@8.15.0 --activate
 # Deshabilitar telemetría de Next.js durante el build
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Variables de entorno dummy para el build (se sobrescriben en runtime)
+# Estas son necesarias para que Next.js pueda compilar sin errores
+ENV NEXT_PUBLIC_SUPABASE_URL="https://placeholder.supabase.co"
+ENV NEXT_PUBLIC_SUPABASE_ANON_KEY="placeholder"
+ENV SUPABASE_SERVICE_ROLE_KEY="placeholder"
+ENV STRIPE_SECRET_KEY="placeholder"
+ENV STRIPE_WEBHOOK_SECRET="placeholder"
+ENV NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
 # Build de la aplicación
 RUN pnpm build
 

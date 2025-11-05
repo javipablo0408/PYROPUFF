@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: pyro-puff
     ports:
-      - "${PORT:-8080}:3000"
+      - "0.0.0.0:${PORT:-8080}:3000"
     environment:
       - NODE_ENV=production
       - NEXT_TELEMETRY_DISABLED=1
@@ -21,7 +21,7 @@ services:
       - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY}
       - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET}
       # App
-      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://localhost:3000}
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-http://192.168.1.59:8080}
     env_file:
       - .env
     restart: unless-stopped

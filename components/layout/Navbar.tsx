@@ -123,15 +123,15 @@ export function Navbar() {
     <>
       <nav className="bg-black text-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <Link href="/" className="flex items-center h-12">
+              <Link href="/" className="flex items-center h-16">
                 <Image
                   src="/logo.png"
                   alt="Pyro Puff"
-                  width={150}
-                  height={48}
-                  className="h-12 w-auto object-contain"
+                  width={200}
+                  height={64}
+                  className="h-16 w-auto object-contain"
                   priority
                   unoptimized={false}
                 />

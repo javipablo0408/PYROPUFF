@@ -170,18 +170,20 @@ export default function ContactPage() {
           </form>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div>
-            <h3 className="text-lg font-semibold text-black mb-2">Email</h3>
-            <p className="text-gray-600">info@pyropuff.com</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-black mb-2">Phone</h3>
-            <p className="text-gray-600">+1 (555) 123-4567</p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold text-black mb-2">Business Hours</h3>
-            <p className="text-gray-600">Mon-Fri: 9AM - 6PM EST</p>
+        <div className="mt-12 bg-gray-50 rounded-lg p-8">
+          <h2 className="text-2xl font-bold mb-6 text-black">Need Help?</h2>
+          <p className="text-gray-700 mb-6">
+            If you have questions about shipping or your order, our customer service team is here to help:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h3 className="text-lg font-semibold text-black mb-2">Email</h3>
+              <p className="text-gray-700">kevin@pyropuff.com</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-black mb-2">Phone</h3>
+              <p className="text-gray-700">+27 61 783 0721</p>
+            </div>
           </div>
         </div>
       </div>

@@ -62,11 +62,8 @@ export async function getProducts(filters?: {
   }
   
   if (filters?.limit) {
-    query = query.limit(filters.limit);
-  }
-  
-  if (filters?.offset) {
-    query = query.offset(filters.offset);
+    const offset = filters.offset || 0;
+    query = query.range(offset, offset + filters.limit - 1);
   }
   
   const { data: products, error } = await query;

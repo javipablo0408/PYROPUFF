@@ -143,7 +143,7 @@ export function ProductsManager() {
       if (error) throw error;
       
       // Mapear precios por rol
-      const pricesMap: Record<string, string> = {
+      const pricesMap: { cliente: string; mayorista: string } = {
         cliente: "",
         mayorista: "",
       };

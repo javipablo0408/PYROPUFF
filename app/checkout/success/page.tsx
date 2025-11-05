@@ -1,21 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-export default function CheckoutSuccessPage() {
+function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("orderId");
-  const [order, setOrder] = useState<any>(null);
-
-  useEffect(() => {
-    if (orderId) {
-      // Aquí podrías cargar los detalles de la orden
-      // Por ahora solo mostramos el mensaje de éxito
-    }
-  }, [orderId]);
 
   return (
     <div className="min-h-screen bg-pyro-white py-16">
@@ -26,16 +18,16 @@ export default function CheckoutSuccessPage() {
           </div>
           
           <h1 className="text-4xl font-bold text-pyro-black mb-4">
-            ¡Pedido Completado!
+            Order Completed!
           </h1>
           
           <p className="text-lg text-pyro-gray mb-6">
-            Gracias por tu compra. Tu pedido ha sido procesado exitosamente.
+            Thank you for your purchase. Your order has been processed successfully.
           </p>
           
           {orderId && (
             <p className="text-sm text-pyro-gray mb-8">
-              Número de pedido: <span className="font-semibold text-pyro-black">{orderId}</span>
+              Order number: <span className="font-semibold text-pyro-black">{orderId}</span>
             </p>
           )}
           
@@ -44,19 +36,33 @@ export default function CheckoutSuccessPage() {
               href="/account/orders"
               className="inline-block bg-pyro-gold text-pyro-black px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors"
             >
-              Ver Mis Pedidos
+              View My Orders
             </Link>
             <br />
             <Link
-              href="/shop"
+              href="/"
               className="inline-block text-pyro-gray hover:text-pyro-gold transition-colors"
             >
-              Continuar Comprando
+              Continue Shopping
             </Link>
           </div>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-pyro-white py-16 flex items-center justify-center">
+        <div className="text-center">
+          <p className="text-pyro-gray">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CheckoutSuccessContent />
+    </Suspense>
   );
 }
 

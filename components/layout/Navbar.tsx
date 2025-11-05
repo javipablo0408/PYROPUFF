@@ -127,7 +127,7 @@ export function Navbar() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center h-12 w-auto">
                 <Image
-                  src="/logo.png"
+                  src="/logo.jpeg"
                   alt="Pyro Puff"
                   width={120}
                   height={48}
